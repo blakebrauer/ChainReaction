@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
 <head>
-    <title>Chain Reaction</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-</head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<body onLoad="pageLoad()">
-<!-- HTML ELEMENTS HERE -->
-    <div id=gameText class=boardDisp></div>
+    <title>Chain Reaction</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body onload="pageLoad()">
+    <div id="gameText" class="boardDisp">
+        <span id="0,0" onclick="charClicked(0,0)">&boxur;</span><br>
+    </div>
+
     <div id="scoreDisplayDiv">
         <br>
-        High Score: <span id="highScoreText">0</span> <br>
         Score: <span id="scoreText">0</span> <br>
+        High Score: <span id="highScoreText">14019</span> <br>
     </div>
     <div id="controls">
-        <button type="button" onClick="resetBoard()">Reset the board</button> <br>
+        <button type="button" onclick="resetBoard()">Reset the board</button> <br>
         <br>
     </div>
     <div id="instructions">
         How to play: <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;Click on a tile to turn it 90° clockwise. <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;If a turned tile connects with a neighboring tile, the neighboring tile will turn 90° clockwise. <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;You earn one point for each time a tile is turned. <br>
+        &emsp;Click on a tile to turn it 90° clockwise. <br>
+        &emsp;If a turned tile connects with a neighboring tile, the neighboring tile will turn 90° clockwise. <br>
+        &emsp;You earn one point for each time a tile is turned. <br>
         <br>
     </div>
     <div id="clearScore">
-        <button type="button" onClick="resetScore()">Reset high score</button> <br>
-<script src="index.js"></script>
+        <button type="button" onclick="resetScore()">Reset high score</button> <br>
+    </div>
+    <div id="coverTemperature" style="background-color: rgb(255, 255, 255); opacity: 0; display: block;"></div>
+
+    <script src="./chain_reaction.js"></script>
 </body>
 </html>
