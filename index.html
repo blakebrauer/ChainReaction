@@ -12,26 +12,41 @@
         <span id="0,0" onclick="charClicked(0,0)">&boxur;</span><br>
     </div>
 
-    <div id="scoreDisplayDiv">
-        <br>
-        Score: <span id="scoreText">0</span> <br>
-        High Score: <span id="highScoreText">14019</span> <br>
+    <div id="controlContainer">
+        <div id="score">
+            Score: <span id="scoreText">0</span>
+        </div>
+        <div id="highScore" onclick="resetScore()" title="Click to Reset High Score">
+            High Score: <span id="highScoreText">0</span>
+        </div>
+        <div id="controls">
+            <button type="button" onclick="resetBoard()">Reset the board</button>
+        </div>
+        <div id="settings">
+            Settings:
+            <form onchange="updateSettings(this)">
+                <label for="speed">Speed:</label>
+                <select name="speed">
+                    <option value="12">Slow</option>
+                    <option value="8" selected>Medium</option>
+                    <option value="0">Fast</option>
+                </select>
+                <br>
+                <label>Highlight Color:</label>
+                <input type="radio" name="changeColor" value="rand"> Random
+                <input type="radio" name="changeColor" value="none"> None
+                <input type="radio" name="changeColor" value="cust"checked> Custom
+                <input type="color" name="customColor" value="#990000">
+            </form>
+        </div>
+        <div id="instructions">
+            How to play: <br>
+            &emsp;Click on a tile to turn it 90° clockwise. <br>
+            &emsp;If a turned tile connects with a neighboring tile, the neighboring tile will turn 90° clockwise. <br>
+            &emsp;You earn one point for each time a tile is turned. <br>
+            <br>
+        </div>
     </div>
-    <div id="controls">
-        <button type="button" onclick="resetBoard()">Reset the board</button> <br>
-        <br>
-    </div>
-    <div id="instructions">
-        How to play: <br>
-        &emsp;Click on a tile to turn it 90° clockwise. <br>
-        &emsp;If a turned tile connects with a neighboring tile, the neighboring tile will turn 90° clockwise. <br>
-        &emsp;You earn one point for each time a tile is turned. <br>
-        <br>
-    </div>
-    <div id="clearScore">
-        <button type="button" onclick="resetScore()">Reset high score</button> <br>
-    </div>
-    <div id="coverTemperature" style="background-color: rgb(255, 255, 255); opacity: 0; display: block;"></div>
 
     <script src="./chain_reaction.js"></script>
 </body>

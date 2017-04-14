@@ -7,7 +7,7 @@ var gameLoop = false;
 var changeColor = "#990000"; // "rand" -> random colors | "none" -> no color change | "#990000" hex color code
 var highScore = 0;
 var score = 0;
-var speed = 1;
+var speed = 8;
 
 
 function pageLoad() {
@@ -32,10 +32,18 @@ function resetBoard() {
 }
 
 function resetScore() {
-    if (confirm("Are you sure you want to reset your high score?") == true) {
+    if (confirm("Are you sure you want to reset your high score?")) {
         highScore = 0;
         document.getElementById("highScoreText").textContent = highScore;
         setScoreCookie();
+    }
+}
+
+function updateSettings(el) {
+    speed = el.querySelector('select[name="speed"]').value;
+    changeColor = el.querySelector('input[name="changeColor"]:checked').value;
+    if (changeColor == "cust") {
+        changeColor = el.querySelector('input[name="customColor"]').value;
     }
 }
 

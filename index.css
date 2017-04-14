@@ -1,6 +1,7 @@
 body {
     margin: 1em auto;
     font-size: 18px;
+    background-color: #EEE;
 }
 
 .boardDisp {
@@ -14,4 +15,8 @@ body {
 
 #instructions {
     font-size: 14px;
+}
+
+#controlContainer {
+    text-align: center;
 }
