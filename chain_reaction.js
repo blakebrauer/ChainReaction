@@ -9,19 +9,22 @@ var highScore = 0;
 var score = 0;
 var speed = 8;
 
-
-function pageLoad() {
+// Let the games begin!
+window.onload = function() {
     highScore = getScoreCookie();
     setBoardSize();
     document.getElementById("highScoreText").textContent = highScore;
-    resetBoard();
 }
 
 function setBoardSize() {
-    fontHeight = document.getElementById('0,0').offsetHeight;
-    fontWidth = document.getElementById('0,0').offsetWidth;
-    boardHeight = (window.innerHeight - (fontHeight * 5)) / fontHeight;
-    boardWidth = (window.innerWidth - (fontWidth * 2)) / fontWidth;
+    var gamePiece = document.getElementById('0,0');
+    fontHeight = gamePiece.offsetHeight;
+    fontWidth = gamePiece.offsetWidth;
+    var gameBoard = document.getElementById("gameText");
+    var padding = parseFloat((window.getComputedStyle(gameBoard)).padding)
+    boardHeight = Math.floor((gameBoard.offsetHeight - (padding * 2)) / fontHeight);
+    boardWidth = Math.floor((gameBoard.clientWidth - (padding * 10)) / fontWidth);
+    resetBoard();
 }
 
 function resetBoard() {

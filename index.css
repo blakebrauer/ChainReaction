@@ -1,20 +1,29 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     margin: 1em auto;
     font-size: 18px;
-    background-color: #EEE;
+    height: 100%;
+    width: 100%;
 }
 
 .boardDisp {
     user-select: none;
     font-family: "Courier New", Courier, monospace;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto 1em;
+    padding: 1em;
     text-align: center;
-    height: 95%;
+    min-height: 200px;
+    height: 80%;
+    width: 97%;
+    border: 1px solid #000;
 }
 
 #instructions {
-    font-size: 14px;
+    font-size: 0.7em;
 }
 
 #controlContainer {
