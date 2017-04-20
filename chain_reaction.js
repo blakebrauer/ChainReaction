@@ -10,7 +10,9 @@ var score = 0;
 var speed = 8;
 
 // Let the games begin!
-window.onload = function() {
+document.body.onload = init();
+
+function init() {
     highScore = getScoreCookie();
     setBoardSize();
     document.getElementById("highScoreText").textContent = highScore;
