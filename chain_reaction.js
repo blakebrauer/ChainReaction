@@ -13,9 +13,17 @@ var speed = 8;
 document.body.onload = init();
 
 function init() {
-    highScore = getScoreCookie();
     setBoardSize();
+    getSettings();
+}
+
+function getSettings() {
+    highScore = eatCookies("highScore");
     document.getElementById("highScoreText").textContent = highScore;
+    // speed = eatCookies("speed");
+    // document.querySelector('input[name="speed"]:checked').value = 0
+    // changeColor = eatCookies("color");
+    // document.querySelector('input[name="changeColor"]:checked').value
 }
 
 function setBoardSize() {
@@ -50,12 +58,14 @@ function updateSettings(el) {
     if (changeColor == "cust") {
         changeColor = el.querySelector('input[name="customColor"]').value;
     }
+    document.cookie = "speed=" + speed + "; expires=Tue, 19 Jan 2038 03:14:07 UTC";
+    document.cookie = "color=" + changeColor + "; expires=Tue, 19 Jan 2038 03:14:07 UTC";
 }
 
 function boardToHTML(arr) {
     var lr = boardHeight, lc = boardWidth;
     var output = "";
-    for (var r = 0; r < lr; r++) { 
+    for (var r = 0; r < lr; r++) {
         for (var c = 0; c < lc; c++) {
             output += "<span id='" + r + "," + c + "' onclick='charClicked(" + r + "," + c + ")'>";
             output += cornerText[arr[r][c]];
@@ -173,8 +183,8 @@ function setScoreCookie() {
     document.cookie = "highScore=" + highScore + "; expires=Tue, 19 Jan 2038 03:14:07 UTC";
 }
 
-function getScoreCookie() {
-    var name = "highScore=";
+function eatCookies(name) {
+    var name = name + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
     for (var i = 0; i <ca.length; i++) {
