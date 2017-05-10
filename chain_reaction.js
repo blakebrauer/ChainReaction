@@ -180,7 +180,7 @@ function removeDuplicates(arr) {
 }
 
 function setScoreCookie() {
-    document.cookie = "highScore=" + highScore + "; expires=Tue, 19 Jan 2038 03:14:07 UTC";
+    document.cookie = "highScore=" + highScore + "; expires=Tue, 19 Jan 2038 03:14:07 UTC; secure";
 }
 
 function eatCookies(name) {
