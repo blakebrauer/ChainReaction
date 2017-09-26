@@ -10,7 +10,7 @@ var score = 0;
 var speed = 8;
 
 // Let the games begin!
-document.body.onload = init();
+document.addEventListener("DOMContentLoaded", init());
 
 function init() {
     setBoardSize();
